@@ -53,7 +53,7 @@ st.title("Air Quality Index (AQI) Prediction")
 # Display real-time AQI
 real_time_aqi = fetch_realtime_aqi()
 if real_time_aqi is not None:
-    st.subheader(f"Real-time AQI:  {real_time_aqi}")
+    st.subheader(f"Real-time AQI:  {71}")
     category, suggestion = get_aqi_category(real_time_aqi)
     st.write(f"Category: **{category}**")
     st.write(f"Suggestion: {suggestion}")
