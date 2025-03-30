@@ -14,15 +14,16 @@ feature_order = ['pm10', 'Rain_PM10', 'Fog_PM10', 'AQI_lag_1', 'Wind_PM10', 'AQI
                  'AQI_lag_6', 'Humidity_Temp', 'H', 'Temp_SO2', 'Tm', 'Month', 'Temp_NO2', 'Rain_SO2']
 
 # Fetch real-time AQI data
+
 def fetch_realtime_aqi():
     url = "https://api.waqi.info/feed/here/?token=e957378050e921377992405d2c4255ce56922963"
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
+        # Check if the necessary fields are present in the response
         if "data" in data and "aqi" in data["data"]:
             return data["data"]["aqi"]
     return None
-
 # Fetch real-time weather data for Bengaluru, Karnataka
 def fetch_realtime_weather():
     url = "https://www.meteosource.com/api/v1/free/point?place_id=bengaluru&sections=all&timezone=UTC&language=en&units=metric&key=5f3luxisgmil3gtni0njkz5pltvsnd8lm43vpmib"
